@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Perdón ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial;
+  background: #ffe6f0;
+  overflow: hidden;
+}
+
+/* corazones de fondo */
+.heart {
+  position: absolute;
+  color: rgba(255,0,100,0.3);
+  animation: float 6s linear infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(100vh) scale(1); }
+  100% { transform: translateY(-10vh) scale(1.5); }
+}
+
+.card {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  z-index: 2;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 12px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#yes {
+  background: #e60073;
+  color: white;
+}
+
+#no {
+  background: #444;
+  color: white;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>¿Me perdonas? ❤️</h1>
+  <p id="msg">Prometo hacerlo mejor.</p>
+
+  <button id="yes" onclick="yes()">Sí</button>
+  <button id="no" onclick="no()">No</button>
+</div>
+
+<script>
+
+// corazones animados
+for (let i = 0; i < 20; i++) {
+  let h = document.createElement("div");
+  h.className = "heart";
+  h.innerHTML = "❤️";
+  h.style.left = Math.random() * 100 + "vw";
+  h.style.fontSize = Math.random() * 20 + 10 + "px";
+  h.style.animationDuration = (Math.random() * 3 + 3) + "s";
+  document.body.appendChild(h);
+}
+
+function yes() {
+  document.getElementById("msg").innerText = "Gracias ❤️ te quiero muchísimo";
+  document.getElementById("yes").style.background = "green";
+}
+
+function no() {
+  document.getElementById("msg").innerText = "Ups 😅 creo que esa no era la respuesta que esperaba...";
+  document.getElementById("no").style.background = "red";
+}
+
+</script>
+
+</body>
+</html>
